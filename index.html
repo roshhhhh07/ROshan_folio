@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roshan Parab — UI/UX Designer (yes, the buttons are where you expect them)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8e7;--fg:#111;--card:#fff;--a:#ff4d8d;--b:#b6ff3b;--c:#7c5cff;--line:#111;--sh:6px 6px 0 var(--line);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0f0e17;--fg:#f4f1ea;--card:#1a1826;--line:#f4f1ea}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0f0e17;--fg:#f4f1ea;--card:#1a1826;--line:#f4f1ea}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:18px;line-height:1.5;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:3px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:14px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;text-decoration:none;margin-right:auto}
+.logo span{background:var(--a);color:#111;padding:0 6px;border-radius:6px}
+nav a.l{font-family:'JetBrains Mono',monospace;font-size:14px;text-decoration:none;font-weight:700;padding:4px 8px;border-radius:8px}
+nav a.l:hover{background:var(--b);color:#111}
+.btn{font:700 15px 'JetBrains Mono',monospace;border:3px solid var(--line);background:var(--b);color:#111;padding:10px 16px;border-radius:12px;box-shadow:4px 4px 0 var(--line);cursor:pointer;text-decoration:none;display:inline-block;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--line)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--line)}
+.btn.pink{background:var(--a)}.btn.ghost{background:var(--card);color:var(--fg)}
+.hero{padding:70px 0 50px}
+.tag{display:inline-block;background:var(--c);color:#fff;font:700 13px 'JetBrains Mono',monospace;padding:6px 12px;border-radius:999px;border:3px solid var(--line);transform:rotate(-2deg)}
+h1{font-size:clamp(44px,9vw,104px);line-height:.95;margin:22px 0 18px;letter-spacing:-.04em;font-weight:800}
+h1 mark{background:var(--b);color:#111;padding:0 .1em;border-radius:.12em;display:inline-block;transform:rotate(-1.5deg)}
+h1 u{text-decoration-color:var(--a);text-decoration-thickness:.09em;text-underline-offset:.1em}
+.sub{max-width:620px;font-size:20px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.status{margin-top:26px;font:500 14px 'JetBrains Mono',monospace;opacity:.85}
+.dot{display:inline-block;width:10px;height:10px;background:#2ee66b;border-radius:50%;margin-right:8px;animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.25}}
+.marq{border-block:3px solid var(--line);background:var(--a);color:#111;overflow:hidden;white-space:nowrap;transform:rotate(-1deg);margin:20px -10px}
+.marq div{display:inline-block;padding:12px 0;font:800 22px 'Bricolage Grotesque';animation:m 28s linear infinite}
+@keyframes m{to{transform:translateX(-50%)}}
+section{padding:60px 0}
+h2{font-size:clamp(34px,6vw,60px);letter-spacing:-.03em;margin:0 0 8px;line-height:1}
+.lead{opacity:.8;margin:0 0 32px;max-width:560px}
+.grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:3px solid var(--line);border-radius:20px;box-shadow:var(--sh);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .15s,box-shadow .15s;text-decoration:none}
+a.card:hover{transform:translate(-3px,-3px) rotate(-.6deg);box-shadow:10px 10px 0 var(--line)}
+.thumb{height:150px;border:3px solid var(--line);border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:34px;color:#111}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:700 12px 'JetBrains Mono',monospace;border:2px solid var(--line);border-radius:999px;padding:3px 10px}
+.card h3{margin:0;font-size:26px;letter-spacing:-.02em}.card p{margin:0}
+.go{margin-top:auto;font:700 14px 'JetBrains Mono',monospace}
+.feat{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:22px}
+.feat .thumb{height:100%;min-height:200px;background:linear-gradient(135deg,#ffd1e3,#ff4d8d 55%,#7c5cff);font-size:clamp(36px,6vw,64px);letter-spacing:-.04em}
+.quote{font-style:italic;border-left:5px solid var(--a);padding-left:12px;opacity:.9}
+.skills{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.skill{border:3px solid var(--line);border-radius:16px;padding:18px;background:var(--card)}
+.skill b{display:block;font-size:20px}.skill small{opacity:.75;font-size:15px}
+.say details{border:3px solid var(--line);border-radius:14px;background:var(--card);margin-bottom:12px;box-shadow:4px 4px 0 var(--line)}
+.say summary{cursor:pointer;font-weight:700;padding:16px 18px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.say summary::after{content:"+";font-family:'JetBrains Mono',monospace}
+.say details[open] summary::after{content:"–"}
+.say details p{margin:0;padding:0 18px 16px}
+.contact{background:var(--c);color:#fff;border:3px solid var(--line);border-radius:28px;box-shadow:var(--sh);padding:clamp(26px,5vw,56px);text-align:left}
+.contact h2{font-size:clamp(38px,7vw,76px)}
+.contact .btn{color:#111}
+footer{padding:30px 0 40px;font:500 13px 'JetBrains Mono',monospace;opacity:.8;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,120px);background:var(--fg);color:var(--bg);padding:12px 18px;border-radius:12px;font:700 14px 'JetBrains Mono',monospace;transition:transform .25s;z-index:30}
+.toast.on{transform:translate(-50%,0)}
+@media(max-width:760px){.feat{grid-template-columns:1fr}nav a.l.h{display:none}.hero{padding-top:40px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">roshan<span>.</span>exe</a>
+  <a class="l h" href="#work">work</a><a class="l h" href="#skills">receipts</a><a class="l h" href="#faq">faq</a>
+  <button class="btn ghost" id="theme" aria-label="Toggle theme" style="padding:6px 12px">◐</button>
+  <a class="btn" href="#contact">hire me</a>
+</div></nav>
+
+<main id="top">
+<header class="wrap hero">
+  <span class="tag">UI/UX Designer · Mumbai, IN</span>
+  <h1>I make apps people <mark>don’t rage-quit.</mark> <u>Revolutionary</u>, I know.</h1>
+  <p class="sub">User-centered design, wireframes, prototypes and Figma files so organised your dev will cry happy tears. Yes, I talk to actual users. No, “I like blue” is not research.</p>
+  <div class="cta"><a class="btn pink" href="#work">see the work ↓</a><a class="btn ghost" href="#contact">skip to the hiring part</a></div>
+  <p class="status"><span class="dot"></span><span id="st">currently: arguing with a hamburger menu</span></p>
+</header>
+
+<div class="marq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <p class="lead">Receipts, not mood boards. Click through and judge me.</p>
+  <div class="grid">
+    <a class="card feat" href="https://phankh.com/" target="_blank" rel="noopener">
+      <div class="thumb" role="img" aria-label="Phankh wordmark">PHANKH</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="chips"><span class="chip">E-commerce</span><span class="chip">Fashion</span><span class="chip">Brand + UX</span><span class="chip">Live ✓</span></div>
+        <h3>Phankh — “Wear your wings”</h3>
+        <p>An online store for a 35-year-old Indian cotton brand. Kurtis, size selectors, sale pricing, a men’s line “launching soon”, and a story rooted in the Hindi word for wings.</p>
+        <p class="quote">Translation: it sells clothes, looks good doing it, and the size picker doesn’t make you want to move to the mountains.</p>
+        <span class="go">open phankh.com ↗</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.behance.net/gallery/244100497/SKATE-Z" target="_blank" rel="noopener"><div class="thumb" style="background:var(--b)">SKATE-Z</div>
+      <div class="chips"><span class="chip">Behance</span><span class="chip">Case study</span></div>
+      <h3>SKATE-Z</h3><p>The full case study lives on Behance, where the images are bigger and I’m allowed to brag properly.</p><span class="go">read on behance ↗</span></a>
+    <a class="card" href="https://cryztalzone.shop/" target="_blank" rel="noopener"><div class="thumb" style="background:#0046ff;color:#fff">CZONE</div>
+      <div class="chips"><span class="chip">E-commerce</span><span class="chip">Shopify</span><span class="chip">Gaming</span></div>
+      <h3>Cryztal Zone</h3><p>A game store covering PC, PlayStation and Xbox with hundreds of titles, rent-or-own variants and how-it-works videos. Making “rent for 30 days” feel obvious is harder than it sounds.</p><span class="go">open cryztalzone.shop ↗</span></a>
+    <a class="card" href="https://www.figma.com/design/1QBvMCVvw83sihjuFXoMc7/Untitled?node-id=24-4112&t=gSXRbVbXxbVDfDLJ-0" target="_blank" rel="noopener"><div class="thumb" style="background:#ffd23f">Figma</div>
+      <div class="chips"><span class="chip">Figma</span><span class="chip">UI design</span></div>
+      <h3>Straight from the file</h3><p>No polished mockup wrapper, just the actual Figma. Zoom in, check the spacing, judge my layer names.</p><span class="go">open in figma ↗</span></a>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>The receipts</h2>
+  <p class="lead">Skills, but make it honest.</p>
+  <div class="skills">
+    <div class="skill"><b>User research</b><small>Asking people things before building things. Wild concept.</small></div>
+    <div class="skill"><b>Wireframing</b><small>Ugly grey boxes that save you six weeks.</small></div>
+    <div class="skill"><b>Prototyping</b><small>Clickable, so stakeholders can stop saying “imagine if”.</small></div>
+    <div class="skill"><b>Figma</b><small>Auto-layout, variables, zero “final_final_v7”.</small></div>
+    <div class="skill"><b>UI polish</b><small>Spacing, type, contrast. The stuff you feel, not notice.</small></div>
+    <div class="skill"><b>Dev handoff</b><small>Specs so clear nobody has to ping me at 11pm.</small></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap say">
+  <h2>Things clients say</h2>
+  <p class="lead">And my very calm responses.</p>
+  <details><summary>“Can you make the logo bigger?”</summary><p>Yes. We will also discuss what the logo is for. Gently.</p></details>
+  <details><summary>“Can we add one more feature?”</summary><p>Sure, right after we figure out whether anyone asked for the first twelve.</p></details>
+  <details><summary>“Make it pop.”</summary><p>Pop how? Contrast, hierarchy, motion? Give me a verb and I’ll give you a design.</p></details>
+  <details><summary>“How fast can you start?”</summary><p>Faster than you can send a brief. Say hi below and we’ll talk timelines like adults.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Got a product that needs saving?</h2>
+    <p class="sub" style="margin:0 0 26px">Slide in. I reply faster than your last agency, and I don’t ghost. That’s the whole pitch.</p>
+    <div class="cta" style="margin:0">
+      <a class="btn" href="mailto:roshan.s.parab66@gmail.com">email me</a><!-- SWAP ME: your real email -->
+      <button class="btn" id="copy" data-email="hello@example.com">copy email</button>
+      <a class="btn" href="https://www.behance.net/roshanparab1" target="_blank" rel="noopener">@roshanparab ↗</a>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer>© 2026 Roshan Parab · built with caffeine and mild contempt for dark patterns</footer>
+<div class="toast" id="toast" role="status">email copied. bold of you to actually hire me 🫡</div>
+
+<script>
+(function(){
+  var words=["UX that slaps","no dark patterns","figma files that behave","users first, ego last","accessible by default","pixels with a purpose"];
+  var m=document.getElementById('mq'),s='';
+  for(var i=0;i<2;i++)words.forEach(function(w){s+=w+' ✦ '});
+  m.textContent=s+s;
+  var st=["arguing with a hamburger menu","deleting a 4th modal","fighting for 8px spacing","reading user feedback (ouch)","rewriting 'Submit' as something human"];
+  var k=0,el=document.getElementById('st');
+  setInterval(function(){k=(k+1)%st.length;el.textContent='currently: '+st[k]},3200);
+  var root=document.documentElement;
+  try{var t=localStorage.getItem('theme');if(t)root.setAttribute('data-theme',t)}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    var n=dark?'light':'dark';root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n)}catch(e){}
+  });
+  var toast=document.getElementById('toast');
+  document.getElementById('copy').addEventListener('click',function(){
+    var e=this.getAttribute('data-email');
+    function done(){toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},2200)}
+    if(navigator.clipboard)navigator.clipboard.writeText(e).then(done,done);else done();
+  });
+})();
+</script>
+</body>
+</html>
